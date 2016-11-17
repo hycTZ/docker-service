@@ -1,0 +1,9 @@
+target/
+.idea
+*.log
+*.iml
+.settings
+.classpath
+.project
+logs/
+temp/
