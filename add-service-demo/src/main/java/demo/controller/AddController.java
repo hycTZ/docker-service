@@ -12,7 +12,7 @@ public class AddController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public Map<String, Object> add(Integer a, Integer b) {
-        System.out.println("端口为8101的实例被调用");
+        System.out.println("端口为8100的实例被调用");
         Map<String, Object> returnMap = new HashMap<>();
         returnMap.put("code", 200);
         returnMap.put("msg", "操作成功");

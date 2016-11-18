@@ -5,15 +5,15 @@ spring:
     active: @activatedProperties@
 
 server:
-  port: 8000
+  port: 80
 
 eureka:
-  instance:
-    hostname: localhost
   client:
     serviceUrl:
       defaultZone: http://localhost:8000/eureka/
-    registerWithEureka: false
-    fetchRegistry: false
-  server:
-    enableSelfPreservation: false
+
+zuul:
+  routes:
+    add-service-demo:
+      path: /add-service/**
+      serviceId: add-service-demo

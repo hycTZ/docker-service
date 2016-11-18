@@ -6,7 +6,7 @@
 
     <groupId>demo</groupId>
     <artifactId>service-registry-demo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -34,14 +34,30 @@
     </dependencyManagement>
 
     <properties>
-        <java.version>1.8</java.version> <!-- 指定java版本 -->
+        <!-- 指定java版本 -->
+        <java.version>1.8</java.version>
         <!-- 镜像前缀，推送镜像到远程库时需要，这里配置了一个阿里云的私有库 -->
         <docker.image.prefix>
             registry.cn-hangzhou.aliyuncs.com/ztecs
         </docker.image.prefix>
         <!-- docker镜像的tag -->
         <docker.tag>demo</docker.tag>
+
+        <!-- 激活的profile -->
+        <activatedProperties></activatedProperties>
     </properties>
+
+    <profiles>
+        <!-- docker环境 -->
+        <profile>
+            <id>docker</id>
+
+            <properties>
+                <activatedProperties>docker</activatedProperties>
+                <docker.tag>docker-demo-${project.version}</docker.tag>
+            </properties>
+        </profile>
+    </profiles>
 
     <build>
         <defaultGoal>install</defaultGoal>
