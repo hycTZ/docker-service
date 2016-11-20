@@ -5,12 +5,9 @@ spring:
     config:
       server:
         git:
-          uri: https://git.oschina.net/yuelenghan/soa-demo.git
-          searchPaths: spring-cloud-2.0/config-repo
+          uri: http://10.47.160.210:18080/soa/config-repo.git
           username: username
           password: password
-  #profiles:
-  #  active: @activatedProperties@
 
 server:
   port: 8888
@@ -22,5 +19,5 @@ endpoints:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8000/eureka/
+      defaultZone: http://service-registry:8000/eureka/
 
