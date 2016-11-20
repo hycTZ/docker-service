@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: @project.artifactId@
+  profiles:
+    active: @activatedProperties@
+
+server:
+  port: 8100
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
