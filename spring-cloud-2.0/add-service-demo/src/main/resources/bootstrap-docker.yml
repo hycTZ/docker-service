@@ -7,7 +7,7 @@ spring:
       label: master
       discovery:
         enabled: true
-        serviceId: CONFIG-SERVER
+        serviceId: CONFIG-SERVER-DEMO
       failFast: true
       retry:
         initialInterval: 10000
