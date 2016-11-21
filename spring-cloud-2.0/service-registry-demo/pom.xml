@@ -6,7 +6,7 @@
 
     <groupId>demo</groupId>
     <artifactId>service-registry-demo</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -106,7 +106,7 @@
                 <configuration>
                     <!-- 修改这里的docker节点ip，需要打开docker节点的远程管理端口2375，
                     具体如何配置可以参照之前的docker安装和配置的文章 -->
-                    <dockerHost>http://10.211.55.4:2375</dockerHost>
+                    <dockerHost>http://10.47.160.238:2375</dockerHost>
                     <imageName>${docker.image.prefix}/${project.build.finalName}</imageName>
                     <baseImage>java</baseImage>
                     <!-- 这里的entryPoint定义了容器启动时的运行命令，容器启动时运行

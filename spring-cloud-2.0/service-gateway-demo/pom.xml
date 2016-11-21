@@ -6,7 +6,7 @@
 
     <groupId>demo</groupId>
     <artifactId>service-gateway-demo</artifactId>
-    <version>1.0</version>
+    <version>2.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -26,6 +26,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
     </dependencies>
 

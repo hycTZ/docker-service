@@ -5,16 +5,18 @@ spring:
     config:
       server:
         git:
-          uri: http://10.47.160.210:18080/soa/config-repo.git
+          uri: https://git.oschina.net/yuelenghan/soa-demo.git
+          searchPaths: spring-cloud-2.0/config-repo
           username: username
           password: password
+  rabbitmq:
+    host: 10.47.160.238
+    port: 5673
+    username: guest
+    password: guest
 
 server:
   port: 8888
-
-endpoints:
-  restart:
-    enabled: true
 
 eureka:
   client:

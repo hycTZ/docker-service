@@ -9,15 +9,16 @@ spring:
           searchPaths: spring-cloud-2.0/config-repo
           username: username
           password: password
-  #profiles:
-  #  active: @activatedProperties@
+  rabbitmq:
+    host: 10.47.160.238
+    port: 5673
+    username: guest
+    password: guest
+  profiles:
+    active: @activatedProperties@
 
 server:
   port: 8888
-
-endpoints:
-  restart:
-    enabled: true
 
 eureka:
   client:
