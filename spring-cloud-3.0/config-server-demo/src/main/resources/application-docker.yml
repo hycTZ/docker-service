@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: @project.artifactId@
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git.oschina.net/yuelenghan/soa-demo.git
+          searchPaths: spring-cloud-2.0/config-repo
+          username: username
+          password: password
+  rabbitmq:
+    host: 10.47.160.238
+    port: 5673
+    username: guest
+    password: guest
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-registry:8000/eureka/
+
