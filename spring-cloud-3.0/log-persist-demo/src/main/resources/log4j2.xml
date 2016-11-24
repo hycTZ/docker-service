@@ -34,11 +34,6 @@
             <Property name="bootstrap.servers">${kafkaBootstrapServers}</Property>
         </Kafka>
 
-        <Kafka name="addLog" topic="add-log">
-            <JsonLayout complete="false" compact="true"/>
-            <Property name="bootstrap.servers">${kafkaBootstrapServers}</Property>
-        </Kafka>
-
         <Async name="FileAsync">
             <AppenderRef ref="RollingFile"/>
         </Async>
@@ -47,15 +42,9 @@
             <AppenderRef ref="basicLog"/>
         </Async>
 
-        <Async name="addLogAsync">
-            <AppenderRef ref="addLog"/>
-        </Async>
     </Appenders>
     <Loggers>
         <Logger name="org.apache.kafka" level="info"/>
-        <Logger name="addLogger" level="info">
-            <appender-ref ref="addLogAsync"/>
-        </Logger>
         <Root level="info">
             <AppenderRef ref="STDOUT"/>
             <AppenderRef ref="FileAsync"/>

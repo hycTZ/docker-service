@@ -1,5 +1,7 @@
 package demo.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +14,7 @@ import java.util.Map;
 @RestController
 @RefreshScope
 public class AddController {
+    private static final Logger addLogger = LoggerFactory.getLogger("addLogger");
 
     @Value("${my.info.str}")
     private String infoStr;
@@ -23,7 +26,10 @@ public class AddController {
         Map<String, Object> returnMap = new HashMap<>();
         returnMap.put("code", 200);
         returnMap.put("msg", "操作成功");
-        returnMap.put("result", a + b);
+        Integer result = a + b;
+        returnMap.put("result", result);
+
+        addLogger.info("a : " + a + ", b : " + b + ", a + b :" + result);
         return returnMap;
     }
 
