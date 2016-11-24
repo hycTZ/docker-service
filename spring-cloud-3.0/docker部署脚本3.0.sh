@@ -11,6 +11,10 @@ docker run -d --name rabbitmq \
  --publish 15672:15672 \
  rabbitmq:management
 
+docker run -d --name mongodb --volume /mongodb/data:/data/db \
+ --publish 27017:27017 \
+ mongo:3.2.11
+
 echo 'sleep 20s to next step...'
 sleep 20s
 
@@ -21,6 +25,10 @@ docker run -d --name kafka --publish 9092:9092 \
 --env KAFKA_ADVERTISED_PORT=9092 \
 --volume /etc/localtime:/etc/localtime \
 wurstmeister/kafka:latest
+
+docker run -d --name mongo-express --link mongodb:mongo \
+ --publish 8081:8081 \
+ mongo-express:0.32.0
 
 echo 'sleep 20s to next step...'
 sleep 20s
@@ -48,3 +56,9 @@ docker run -d --name service-gateway-demo --publish 80:80 --link service-registr
  --link config-server-demo \
  --link add-service-demo --volume /etc/localtime:/etc/localtime \
  registry.cn-hangzhou.aliyuncs.com/ztecs/service-gateway-demo:docker-demo-3.0
+
+docker run -d --name log-persist-demo --link service-registry-demo:service-registry \
+ --link config-server-demo \
+ --link kafka --link mongodb  \
+ --volume /etc/localtime:/etc/localtime \
+ registry.cn-hangzhou.aliyuncs.com/ztecs/log-persist-demo:docker-demo-3.0
