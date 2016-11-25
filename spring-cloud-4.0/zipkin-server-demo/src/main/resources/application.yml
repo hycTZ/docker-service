@@ -1,0 +1,27 @@
+server:
+  port: 9411
+
+spring:
+  profiles:
+    active: @activatedProperties@
+  rabbitmq:
+    host: 10.47.160.114
+    port: 5673
+    username: guest
+    password: guest
+  datasource:
+    schema: classpath:/mysql.sql
+    url: jdbc:mysql://10.47.160.114:3306/sleuth_log
+    username: soa
+    password: 123456
+    initialize: true
+    continueOnError: true
+  sleuth:
+    enabled: false
+  output:
+    ansi:
+      enabled: ALWAYS
+
+zipkin:
+  storage:
+    type: mysql
