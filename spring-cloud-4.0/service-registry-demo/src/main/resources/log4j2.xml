@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
     <Properties>
+        <Property name="PID">????</Property>
+        <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+        <Property name="LOG_LEVEL_PATTERN">%5p</Property>
         <Property name="logFormat">
-            %d{yyyy-MM-dd HH:mm:ss.SSS}{GMT+8} [@project.artifactId@] [%thread] %-5level %logger{35} - %msg %n
+            %d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN} [@project.artifactId@,%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}] ${sys:PID} --- [%15.15t] %-40.40c{1.} : %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}
         </Property>
         <Property name="kafkaBootstrapServers">
             @kafka.bootstrap.servers@
